@@ -1,0 +1,7 @@
+interface:
+  display_name: "Sol Hybrid Delivery v1.0"
+  short_description: "Quality-first Sol routing to Luna, Terra, or direct execution"
+  default_prompt: "Use $sol-hybrid-delivery to complete this local coding task end to end with the best quality-first execution route."
+
+policy:
+  allow_implicit_invocation: false
