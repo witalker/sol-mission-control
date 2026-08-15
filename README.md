@@ -2,7 +2,7 @@
 
 # Sol Mission Control
 
-Make delegation earn its keep.
+Task success is not delegation success.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Codex Skill](https://img.shields.io/badge/Codex-Skill-111827)](sol-hybrid-delivery/SKILL.md)
@@ -10,20 +10,25 @@ Make delegation earn its keep.
 
 English | [简体中文](#简体中文)
 
-Many multi-agent coding setups treat "two agents started" as a result. It is not. That only proves the agents ran. It says nothing about code quality, elapsed time, token use, or the cleanup left for the primary model.
+Multi-agent coding has an easy way to look successful: Sol prepares the packet, a child returns partial work, Sol rewrites it, and the final green build still gets credited to delegation.
 
-Sol Mission Control routes one coding milestone to Direct Sol, Luna, Terra, or one conflict-free pair. It then audits the finished task and the delegation separately. If Sol has to rescue the implementation, the task can pass while the delegation still loses. That distinction is the reason this project exists.
+Sol Mission Control records what actually happened. Sol remains responsible for acceptance. Luna gets deterministic volume. Terra gets bounded logic. Ambiguous, integrated, live, or safety-sensitive work stays with Sol. Without an existing oracle, an exact write lease, and a credible time gain, no child starts.
 
-This repository packages the workflow as a Codex Skill named `$sol-hybrid-delivery`.
+Each milestone gets one wave and at most two writers. A two-agent wave needs independent files, interfaces, fixtures, commands, caches, and final checks, plus at least 30% projected critical-path gain. If a child fails, Sol finishes the packet. There is no retry swarm and no second request for permission to change the internal model.
+
+The audit gives two separate verdicts: did the requested behavior pass, and did delegation help? A task can finish `PASS` while delegation is `LOSS`. To earn `WIN`, the run needs a comparable Direct Sol baseline and at least 15% measured savings in elapsed time or cost-sensitive token use, with coordination and rework still inside the protocol limits. Agent count and green tests are never enough.
+
+The workflow is packaged as the Codex Skill `$sol-hybrid-delivery`.
 
 ```mermaid
 flowchart LR
-    A["Coding milestone"] --> S["Sol decides the route"]
-    S --> D["Direct Sol"]
-    S --> L["Luna"]
-    S --> T["Terra"]
-    S --> P["Two independent executors"]
-    D --> R["Sol reviews and verifies"]
+    A["Coding milestone"] --> G{"Delegation admitted?"}
+    G -->|No| D["Direct Sol"]
+    G -->|Yes| S{"Work shape"}
+    S --> L["Luna: deterministic volume"]
+    S --> T["Terra: bounded logic"]
+    S --> P["Two conflict-free writers"]
+    D --> R["Sol owns review and acceptance"]
     L --> R
     T --> R
     P --> R
@@ -31,17 +36,17 @@ flowchart LR
     R --> E["Delegation: NOT_USED / WIN / NEUTRAL / LOSS"]
 ```
 
-## What it does
+## What the Skill enforces
 
-- Keeps Direct Sol as the default. Delegation needs a clear reason.
-- Sends exact, repetitive work to Luna.
-- Sends bounded logic, fixes, tests, and local refactors to Terra.
-- Allows at most one wave and two write-capable child agents.
-- Gives every writer an exclusive file lease and rejects shared mutable state.
-- Lets Sol take over automatically when a child fails or stops being useful.
-- Records quality and delegation value on separate axes.
+| Rule | Consequence |
+| --- | --- |
+| Direct Sol is the default | Delegation needs an independent oracle, a frozen packet, an exact lease, and a credible payoff. |
+| Work shape chooses the model | Luna handles exact repetition. Terra handles bounded judgment. Sol keeps discovery, architecture, integration, and rescue. |
+| Parallel writers cannot share mutable state | Shared files, contracts, fixtures, commands, caches, ports, or final checks force serial execution. |
+| Child failure ends delegation for that packet | Sol takes over immediately. The workflow does not spend another invocation on a replacement child. |
+| Quality and delegation are scored separately | Sol can save the task without allowing the failed handoff to claim a win. |
 
-There are no availability scouts, no follow-up loops, and no request for the user to approve an internal model switch. Live services, production databases, deployment, hardware, browser state, credentials, and other external operations stay with Sol and their real authority checks.
+Availability scouts and follow-up loops are deliberately excluded. Live services, production databases, deployment, hardware, browser state, credentials, and other external operations stay with Sol and keep their real authority checks.
 
 ## Routing in plain terms
 
@@ -143,25 +148,29 @@ Released under the [MIT License](LICENSE).
 
 ## 简体中文
 
-让每一次委派都拿出证据。
+任务做完，不等于委派成功。
 
-很多多代理方案把“成功拉起两个子代理”当成绩。其实这只能证明代理启动了，不能证明代码更好、任务更快、Token 更少，也看不出主模型最后替它们收拾了多少工作。
+多代理最容易藏住的浪费是这样：Sol 花时间拆任务，子代理交回半成品，Sol 再重写一遍。最后测试通过，整次委派照样被算成成功。
 
-Sol Mission Control 会给一个编码里程碑选一条路：Sol 直接做，Luna 处理确定性的重复工作，Terra 处理边界明确的逻辑实现，或者让两个互不冲突的执行器并行。任务结束后，质量和委派收益分开计算。即使 Sol 最后把任务救了回来，质量可以是 `PASS`，这次委派仍然会记为 `LOSS`。这个区分就是项目存在的理由。
+Sol Mission Control 会把这笔账记清楚。最终验收始终归 Sol。Luna 处理确定性的重复工作，Terra 处理边界明确的逻辑，需求含糊、强集成、线上状态和安全相关任务留给 Sol。没有现成的验收依据、精确的独占写入范围和算得过来的时间收益，子代理就不启动。
 
-仓库里提供的是 Codex Skill：`$sol-hybrid-delivery`。
+一个里程碑只跑一波，最多两个写代理。双代理的文件、接口、fixture、命令、缓存和最终验收必须完全独立，扣掉 Sol 的准备与复核后，预估关键路径耗时至少缩短 30%。子代理失败后，Sol 直接完成剩余工作，不再换一个子代理重试，也不会让用户再次批准内部模型切换。
 
-## 它具体做什么
+审计最后给出两个判定：需求有没有通过，委派到底值不值。任务可以是 `PASS`，委派同时是 `LOSS`。只有可比的 Direct Sol 基线证明实测总耗时或成本敏感 Token 用量至少下降 15%，而且协调和返工没有超限，才会记为 `WIN`。启动了几个代理、测试是不是绿色，都不能单独证明收益。
 
-- 默认让 Sol 直接完成。没有明确收益就不拆任务。
-- 大量确定性修改交给 Luna。
-- 局部逻辑、Bug 修复、测试和本地重构交给 Terra。
-- 一个里程碑最多启动一波、两个可写子代理。
-- 每个写代理都有独占文件范围，碰到共享状态就改为串行。
-- 子代理失败或继续协调已经不划算时，Sol 在原授权范围内直接接手。
-- 最终结果分成任务质量和委派收益两个数字，不再用“任务做完了”掩盖低效协作。
+这套流程打包为 Codex Skill：`$sol-hybrid-delivery`。
 
-这个流程不用可用性 scout，不追加 `followup_task`，也不会为了 Sol 接管再向用户要一次内部模型切换授权。线上服务、真实数据库、部署、硬件、浏览器状态、凭据等操作仍由 Sol 处理，并保留原本该有的权限确认。
+## Skill 实际卡住了什么
+
+| 规则 | 结果 |
+| --- | --- |
+| 默认由 Sol 直接完成 | 子代理必须有独立验收依据、冻结任务包、精确写入范围和可信收益。 |
+| 按任务形态选模型 | Luna 做确定性重复工作，Terra 做局部逻辑，Sol 负责探索、架构、集成和接管。 |
+| 并行写入不能共享可变状态 | 文件、契约、fixture、命令、缓存、端口或最终验收有任何交叉，就改成串行。 |
+| 子代理失败就关闭这次委派 | Sol 立即接手，不再浪费一次调用去启动替补子代理。 |
+| 任务质量和委派收益分开算 | Sol 可以把任务救回来，但失败的委派不能顺便领走功劳。 |
+
+流程不启动可用性 scout，也不追加 `followup_task`。线上服务、真实数据库、部署、硬件、浏览器状态和凭据仍由 Sol 处理，该有的权限确认照常保留。
 
 ## 怎么选模型
 
@@ -173,7 +182,7 @@ Sol Mission Control 会给一个编码里程碑选一条路：Sol 直接做，Lu
 | 风险较低但仍需要一点判断的小改动 | `terra_fast` |
 | 有测试约束的局部修复、补测、重构或边界逻辑 | `terra_executor` |
 
-只有两个任务的文件、接口、fixture、命令、生成物、缓存和最终验收互不影响时，才允许双代理并行。扣掉 Sol 的准备和复核时间后，保守估计至少应缩短 30% 的总耗时。达不到就让 Sol 自己做。
+只有两个任务的文件、接口、fixture、命令、生成物、缓存和最终验收互不影响时，才允许双代理并行。扣掉 Sol 的准备和复核时间后，保守估计至少应缩短 30% 的关键路径耗时。达不到就让 Sol 自己做。
 
 ## 安装
 
