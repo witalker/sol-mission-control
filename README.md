@@ -1,6 +1,6 @@
 <a id="english"></a>
 
-# Sol Mission Control
+# Codex Sol Mission Control
 
 Smart model routing for faster coding with fewer tokens.
 
@@ -10,7 +10,7 @@ Smart model routing for faster coding with fewer tokens.
 
 English | [简体中文](#简体中文)
 
-Sol Mission Control is a quality-first model router for Codex, built to shorten coding time and reduce token use. For each coding milestone, Sol chooses Direct Sol, Luna, Terra, or one conflict-free pair. The route follows the shape of the work, existing acceptance evidence, conflict risk, and the expected savings in time and tokens.
+Codex Sol Mission Control is a quality-first model router for Codex, built to shorten coding time and reduce token use. For each coding milestone, Sol chooses Direct Sol, Luna, Terra, or one conflict-free pair. The route follows the shape of the work, existing acceptance evidence, conflict risk, and the expected savings in time and tokens.
 
 Sol keeps discovery, architecture, integration, and rescue. Luna takes deterministic repetition and bulk edits. Terra handles bounded logic, tests, and local refactors. Sol's context and high-reasoning budget stay focused on the work that needs them.
 
@@ -153,7 +153,7 @@ Released under the [MIT License](LICENSE).
 
 智能模型路由，让编码更快，Token 花得更少。
 
-Sol Mission Control 是 Codex 的质量优先模型路由器，目标是在保证验收质量的前提下，缩短编码时间并减少 Token 消耗。每个编码里程碑先由 Sol 判断：自己做、交给 Luna、交给 Terra，或者拆成两个互不冲突的任务。选路依据是任务形态、现成验收证据、冲突风险，以及预计能省下多少时间和 Token。
+Codex Sol Mission Control 是 Codex 的质量优先模型路由器，目标是在保证验收质量的前提下，缩短编码时间并减少 Token 消耗。每个编码里程碑先由 Sol 判断：自己做、交给 Luna、交给 Terra，或者拆成两个互不冲突的任务。选路依据是任务形态、现成验收证据、冲突风险，以及预计能省下多少时间和 Token。
 
 Sol 负责探索、架构、集成和接管。Luna 承接确定性的重复工作和批量修改，Terra 处理边界明确的逻辑、测试与局部重构。Sol 的上下文和高强度推理预算因此留给难题。
 
