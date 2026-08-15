@@ -2,7 +2,7 @@
 
 # Sol Mission Control
 
-Task success is not delegation success.
+Smart model routing for faster coding with fewer tokens.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Codex Skill](https://img.shields.io/badge/Codex-Skill-111827)](sol-hybrid-delivery/SKILL.md)
@@ -10,9 +10,11 @@ Task success is not delegation success.
 
 English | [简体中文](#简体中文)
 
-Multi-agent coding has an easy way to look successful: Sol prepares the packet, a child returns partial work, Sol rewrites it, and the final green build still gets credited to delegation.
+Sol Mission Control is a quality-first model router for Codex, built to shorten coding time and reduce token use. For each coding milestone, Sol chooses Direct Sol, Luna, Terra, or one conflict-free pair. The route follows the shape of the work, existing acceptance evidence, conflict risk, and the expected savings in time and tokens.
 
-Sol Mission Control records what actually happened. Sol remains responsible for acceptance. Luna gets deterministic volume. Terra gets bounded logic. Ambiguous, integrated, live, or safety-sensitive work stays with Sol. Without an existing oracle, an exact write lease, and a credible time gain, no child starts.
+Sol keeps discovery, architecture, integration, and rescue. Luna takes deterministic repetition and bulk edits. Terra handles bounded logic, tests, and local refactors. Sol's context and high-reasoning budget stay focused on the work that needs them.
+
+Task length alone never starts a child. The router checks the oracle, repository, exact write lease, expected diff, targeted validation, and coordination cost first. If preparation and review erase the expected time or token gain, the work stays with Sol.
 
 Each milestone gets one wave and at most two writers. A two-agent wave needs independent files, interfaces, fixtures, commands, caches, and final checks, plus at least 30% projected critical-path gain. If a child fails, Sol finishes the packet. There is no retry swarm and no second request for permission to change the internal model.
 
@@ -22,25 +24,26 @@ The workflow is packaged as the Codex Skill `$sol-hybrid-delivery`.
 
 ```mermaid
 flowchart LR
-    A["Coding milestone"] --> G{"Delegation admitted?"}
+    A["Coding milestone"] --> SR["Sol router: shape + oracle + payoff"]
+    SR --> G{"Delegate?"}
     G -->|No| D["Direct Sol"]
-    G -->|Yes| S{"Work shape"}
+    G -->|Yes| S{"Best model fit"}
     S --> L["Luna: deterministic volume"]
     S --> T["Terra: bounded logic"]
     S --> P["Two conflict-free writers"]
-    D --> R["Sol owns review and acceptance"]
-    L --> R
-    T --> R
-    P --> R
-    R --> Q["Quality: PASS / PARTIAL / FAIL"]
-    R --> E["Delegation: NOT_USED / WIN / NEUTRAL / LOSS"]
+    D --> V["Sol owns review and acceptance"]
+    L --> V
+    T --> V
+    P --> V
+    V --> Q["Quality: PASS / PARTIAL / FAIL"]
+    V --> E["Delegation: NOT_USED / WIN / NEUTRAL / LOSS"]
 ```
 
-## What the Skill enforces
+## What the router enforces
 
 | Rule | Consequence |
 | --- | --- |
-| Direct Sol is the default | Delegation needs an independent oracle, a frozen packet, an exact lease, and a credible payoff. |
+| Direct Sol is the default | Delegation needs an independent oracle, a frozen packet, an exact lease, and expected savings in time or token use. |
 | Work shape chooses the model | Luna handles exact repetition. Terra handles bounded judgment. Sol keeps discovery, architecture, integration, and rescue. |
 | Parallel writers cannot share mutable state | Shared files, contracts, fixtures, commands, caches, ports, or final checks force serial execution. |
 | Child failure ends delegation for that packet | Sol takes over immediately. The workflow does not spend another invocation on a replacement child. |
@@ -148,11 +151,13 @@ Released under the [MIT License](LICENSE).
 
 ## 简体中文
 
-任务做完，不等于委派成功。
+智能模型路由，让编码更快，Token 花得更少。
 
-多代理最容易藏住的浪费是这样：Sol 花时间拆任务，子代理交回半成品，Sol 再重写一遍。最后测试通过，整次委派照样被算成成功。
+Sol Mission Control 是 Codex 的质量优先模型路由器，目标是在保证验收质量的前提下，缩短编码时间并减少 Token 消耗。每个编码里程碑先由 Sol 判断：自己做、交给 Luna、交给 Terra，或者拆成两个互不冲突的任务。选路依据是任务形态、现成验收证据、冲突风险，以及预计能省下多少时间和 Token。
 
-Sol Mission Control 会把这笔账记清楚。最终验收始终归 Sol。Luna 处理确定性的重复工作，Terra 处理边界明确的逻辑，需求含糊、强集成、线上状态和安全相关任务留给 Sol。没有现成的验收依据、精确的独占写入范围和算得过来的时间收益，子代理就不启动。
+Sol 负责探索、架构、集成和接管。Luna 承接确定性的重复工作和批量修改，Terra 处理边界明确的逻辑、测试与局部重构。Sol 的上下文和高强度推理预算因此留给难题。
+
+任务长，不会自动触发子代理。路由器会先检查验收依据、仓库、精确写入范围、预计改动、定向测试和协调成本。准备与复核会吃掉预期的时间或 Token 收益时，任务仍由 Sol 直接完成。
 
 一个里程碑只跑一波，最多两个写代理。双代理的文件、接口、fixture、命令、缓存和最终验收必须完全独立，扣掉 Sol 的准备与复核后，预估关键路径耗时至少缩短 30%。子代理失败后，Sol 直接完成剩余工作，不再换一个子代理重试，也不会让用户再次批准内部模型切换。
 
@@ -160,11 +165,11 @@ Sol Mission Control 会把这笔账记清楚。最终验收始终归 Sol。Luna 
 
 这套流程打包为 Codex Skill：`$sol-hybrid-delivery`。
 
-## Skill 实际卡住了什么
+## 模型路由的硬规则
 
 | 规则 | 结果 |
 | --- | --- |
-| 默认由 Sol 直接完成 | 子代理必须有独立验收依据、冻结任务包、精确写入范围和可信收益。 |
+| 默认由 Sol 直接完成 | 子代理必须有独立验收依据、冻结任务包、精确写入范围，以及可预期的时间或 Token 收益。 |
 | 按任务形态选模型 | Luna 做确定性重复工作，Terra 做局部逻辑，Sol 负责探索、架构、集成和接管。 |
 | 并行写入不能共享可变状态 | 文件、契约、fixture、命令、缓存、端口或最终验收有任何交叉，就改成串行。 |
 | 子代理失败就关闭这次委派 | Sol 立即接手，不再浪费一次调用去启动替补子代理。 |
